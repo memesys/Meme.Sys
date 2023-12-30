@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "memanagptrrr"
+version = "0.1.0"
+description = ""
+authors = ["Dmiriy Yampolkiy <yampolskiydv@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+openai = "^1.6.1"
+environ = "^1.0"
+telethon = "^1.33.1"
+python-telegram-bot = "^20.7"
+tgcrypto = "^1.2.5"
+loguru = "^0.7.2"
+fire = "^0.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
