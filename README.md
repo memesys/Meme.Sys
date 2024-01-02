@@ -1,4 +1,6 @@
-Telegram bot for semantic memes search.
+# Meme.Sys ([Mimesis]([url](https://en.wikipedia.org/wiki/Mimesis))) – Memes systems.
+
+(OpenAI, LLM, OCR)-powered telegram bot for semantic memes search.
 
 Search your memes library, always have any meme you need at the tips of the fingers.
 
