@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "memanagptrrr"
+name = "memesys"
 version = "0.1.0"
 description = ""
 authors = ["Dmiriy Yampolkiy <yampolskiydv@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "~3.11"
 openai = "^1.6.1"
 environ = "^1.0"
 telethon = "^1.33.1"
