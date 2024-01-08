@@ -1,6 +1,6 @@
 # Meme.Sys – Memes systems.
 
-[Mimesis]([url](https://en.wikipedia.org/wiki/Mimesis))
+Mimesis: [wiki](https://en.wikipedia.org/wiki/Mimesis)
 
 (OpenAI, LLM, OCR)-powered telegram bot for semantic memes search.
 
