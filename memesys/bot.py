@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import asyncio
 import os
 from io import BytesIO
@@ -9,6 +12,8 @@ from telegram import Bot, Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, filters, Application, PicklePersistence
 
 from gpt_api import chat_gpt_description
+from memesys.db import save_image, search_image
+
 
 TG_BOT_TOKEN: Final[str] = os.getenv("TG_BOT_TOKEN")
 UPDATE_QUEUE: Final[asyncio.Queue] = asyncio.Queue()
@@ -38,7 +43,25 @@ async def process_photo(
     io = BytesIO()
     await photo_file.download_to_memory(io)
     text = await chat_gpt_description(io)
+
+    link = f'https://t.me/c/{update.message.chat.id}/{update.message.id}'
+
+    await save_image(
+        data=io.getvalue(),
+        text=text,
+        link=link,
+    )
+
     await update.message.reply_text(text)
+
+async def search_meme(
+        update: Update,
+        context,
+):
+    """Search for meme."""
+    text = update.message.text
+    results = await search_image(text.removeprefix("/search_all").strip())
+    await update.message.reply_text(str(results))
 
 
 async def error(update, context):
@@ -49,6 +72,7 @@ async def error(update, context):
 def main():
     # Register handlers
     APPLICATION.add_handler(CommandHandler("start", start))
+    APPLICATION.add_handler(CommandHandler("search_all", search_meme))
     APPLICATION.add_handler(MessageHandler(filters.PHOTO, process_photo))
     APPLICATION.add_error_handler(error)
 

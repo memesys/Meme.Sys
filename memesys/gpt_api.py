@@ -5,6 +5,7 @@ from typing import Final
 
 from openai import AsyncOpenAI
 
+
 API_KEY: Final[str] = os.getenv("OPENAI_API_KEY")
 OPEN_AI_CLIENT: Final[AsyncOpenAI] = AsyncOpenAI(api_key=API_KEY)
 
